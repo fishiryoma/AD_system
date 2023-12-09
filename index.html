@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>廣告排期系統</title>
+  </head>
+
+  <body>
+    <div class="ad-panel">
+      <nav class="nav">
+        <a href="#" class=""
+          ><img
+            src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/logo.svg"
+            alt="logo"
+            class="logo-img"
+        /></a>
+        <div class="control-panel">
+          <ul class="control-list">
+            <li class="control-menu">
+              <a href="#">
+                <img
+                  src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/frame.svg"
+                  alt="frame"
+                  class="frame active"
+                />
+              </a>
+            </li>
+            <li class="control-menu">
+              <a href="#"
+                ><img
+                  src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/folder.svg"
+                  alt="folder"
+                  class="folder"
+              /></a>
+            </li>
+            <li class="control-menu">
+              <a href="#"
+                ><img
+                  src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/mail.svg"
+                  alt="mail"
+                  class="mail"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main class="main">
+        <div class="container">
+          <h1>Campaign</h1>
+          <div class="form-panel">
+            <table>
+              <thead>
+                <tr>
+                  <th class="checkbox-col">
+                    <img
+                      src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/checkbox.svg"
+                      alt="checkbox"
+                    />
+                  </th>
+                  <th class="id-col">ID</th>
+                  <th class="name-col">Name</th>
+                  <th class="advertiser-col">
+                    <p class="advertiser">Advertiser</p>
+                    <p class="group">group</p>
+                  </th>
+                  <th class="description-col">Description</th>
+                  <th class="price-col">
+                    Price
+                    <img
+                      src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+                      alt=""
+                      class="sort-img"
+                    />
+                  </th>
+                  <th class="start-time-col">
+                    Start Time
+                    <img
+                      src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+                      alt=""
+                      class="sort-img"
+                    />
+                  </th>
+                  <th class="end-time-col">
+                    End Time
+                    <img
+                      src="https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/sort.svg"
+                      alt=""
+                      class="sort-img"
+                    />
+                  </th>
+                  <th class="actions-col">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="scrollbar"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

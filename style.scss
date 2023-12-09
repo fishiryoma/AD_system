@@ -1,0 +1,242 @@
+/*reset */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+menu {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+a {
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+table {
+  border: none;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: initial;
+}
+/*reset end*/
+// set 1rem = 10px
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+$white: rgba(255, 255, 255, 1);
+$black: rgba(0, 0, 0, 1);
+$dark-blue: rgba(3, 57, 106, 1);
+$dark-grey: rgba(205, 205, 205, 1);
+$light-grey: rgba(233, 233, 233, 1);
+
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+// -----------------Style
+// 用Grid將畫面分成nav & main
+.ad-panel {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  grid-template-rows: 100vh;
+}
+// nav
+.nav {
+  background-color: $dark-blue;
+  .logo-img {
+    width: 100%;
+    margin-top: 3rem;
+  }
+  .control-panel {
+    margin-top: 15.3rem;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5.5rem;
+      align-items: center;
+      img {
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        padding: 1rem;
+        // SVG的顏色調不動
+        color: $white;
+        &.active {
+          background-color: $white;
+          color: $black;
+          stroke: $black;
+        }
+      }
+    }
+  }
+}
+
+// main
+.main {
+  padding: 0 4.7rem;
+  .container {
+    // 觀察用
+    // border: 1px solid red;
+    width: 124rem;
+    margin: 0 auto;
+    padding: 4.2rem 0;
+  }
+  h1 {
+    font-size: 4.8rem;
+    font-weight: 400;
+  }
+  .form-panel {
+    margin-top: 3.4rem;
+    table {
+      width: 100%;
+      font-size: 1.4rem;
+      background-color: $dark-grey;
+      thead {
+        tr {
+          // 表格title列設置背景色
+          background-color: $dark-grey;
+          width: calc(100% - 6px);
+        }
+      }
+      tbody {
+        // 讓tbody能產生卷軸，改變tbody屬性
+        display: block;
+        max-height: 50rem;
+        overflow-y: scroll;
+        background-color: $white;
+        tr {
+          // 作為popup的定位
+          position: relative;
+          // 偶數改變背景色
+          &:nth-child(even) {
+            background-color: $light-grey;
+          }
+          // 點擊input時改變背景色
+          &.checked {
+            background-color: orange;
+          }
+        }
+      }
+      tr {
+        // 讓tbody能產生卷軸，改變所有tr屬性
+        display: table;
+        width: 100%;
+      }
+      th,
+      td {
+        font-weight: 400;
+        text-align: center;
+        // 固定高度
+        height: 5rem;
+      }
+      // 照設計稿固定每欄寬度
+      .checkbox-col {
+        width: 5rem;
+        img {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+      .id-col {
+        width: 8rem;
+      }
+      .advertiser-col {
+        width: 14rem;
+        .group {
+          color: rgba(130, 130, 130, 1);
+          font-size: 1.2rem;
+        }
+      }
+      .price-col,
+      .start-time-col,
+      .end-time-col {
+        width: 14rem;
+        // 作為sort按鈕的參考位置
+        position: relative;
+        img {
+          width: 2rem;
+          height: 2rem;
+          // sort按鈕定位
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+      }
+      .description-col {
+        width: 20rem;
+      }
+      .actions-col {
+        width: 21rem;
+        img {
+          cursor: pointer;
+        }
+      }
+      input[type="checkbox"] {
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+// popup
+.actions-list {
+  // 觀察用
+  // border: 1px solid peru;
+  position: absolute;
+  top: 5rem;
+  right: 10.5rem;
+  width: 13rem;
+  height: 12rem;
+  background-color: $white;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding-left: 1rem;
+  justify-content: center;
+  .action-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    cursor: pointer;
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+  &.hidden {
+    display: none;
+  }
+}
