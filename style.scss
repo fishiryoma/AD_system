@@ -46,11 +46,23 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-$white: rgba(255, 255, 255, 1);
-$black: rgba(0, 0, 0, 1);
-$dark-blue: rgba(3, 57, 106, 1);
-$dark-grey: rgba(205, 205, 205, 1);
-$light-grey: rgba(233, 233, 233, 1);
+[data-theme="light"] {
+  --white: rgba(255, 255, 255, 1);
+  --black: rgba(0, 0, 0, 1);
+  --dark-blue: rgba(3, 57, 106, 1);
+  --dark-grey: rgba(205, 205, 205, 1);
+  --light-grey: rgba(233, 233, 233, 1);
+  --darkmode-btn: url("https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/darkmode-off.svg");
+}
+
+[data-theme="dark"] {
+  --white: rgb(191, 191, 191);
+  --black: rgb(21, 19, 19);
+  --dark-blue: rgb(63, 83, 103);
+  --dark-grey: rgb(2, 1, 1);
+  --light-grey: rgb(133, 133, 133);
+  --darkmode-btn: url("https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/darkmode-off.svg");
+}
 
 .scrollbar {
   &::-webkit-scrollbar {
@@ -71,7 +83,8 @@ $light-grey: rgba(233, 233, 233, 1);
 }
 // nav
 .nav {
-  background-color: $dark-blue;
+  background-color: var(--dark-blue);
+  overflow-y: hidden;
   .logo-img {
     width: 100%;
     margin-top: 3rem;
@@ -89,11 +102,19 @@ $light-grey: rgba(233, 233, 233, 1);
         height: 4rem;
         padding: 1rem;
         // SVG的顏色調不動
-        color: $white;
+        color: var(--white);
         &.active {
-          background-color: $white;
-          color: $black;
-          stroke: $black;
+          background-color: var(--white);
+        }
+      }
+      .darkmode {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        background-image: var(--darkmode-btn);
+        & + input {
+          display: none;
         }
       }
     }
@@ -103,6 +124,7 @@ $light-grey: rgba(233, 233, 233, 1);
 // main
 .main {
   padding: 0 4.7rem;
+  background-color: var(--white);
   .container {
     // 觀察用
     // border: 1px solid red;
@@ -119,12 +141,15 @@ $light-grey: rgba(233, 233, 233, 1);
     table {
       width: 100%;
       font-size: 1.4rem;
-      background-color: $dark-grey;
+      background-color: var(--dark-grey);
       thead {
         tr {
           // 表格title列設置背景色
-          background-color: $dark-grey;
+          background-color: var(--dark-grey);
           width: calc(100% - 6px);
+        }
+        th {
+          color: var(--white);
         }
       }
       tbody {
@@ -132,13 +157,13 @@ $light-grey: rgba(233, 233, 233, 1);
         display: block;
         max-height: 50rem;
         overflow-y: scroll;
-        background-color: $white;
+        background-color: var(--white);
         tr {
           // 作為popup的定位
           position: relative;
           // 偶數改變背景色
           &:nth-child(even) {
-            background-color: $light-grey;
+            background-color: var(--light-grey);
           }
           // 點擊input時改變背景色
           &.checked {
@@ -219,7 +244,7 @@ $light-grey: rgba(233, 233, 233, 1);
   right: 10.5rem;
   width: 13rem;
   height: 12rem;
-  background-color: $white;
+  background-color: var(--white);
   z-index: 2;
   display: flex;
   flex-direction: column;

@@ -2,6 +2,7 @@
 const controlPanel = document.querySelector(".control-panel");
 const controlImg = controlPanel.querySelectorAll("img");
 const tableTbody = document.querySelector("tbody");
+const darkmodeBtn = document.querySelector("#darkmodebtn");
 
 // 將被選取的nav menu加上active class
 function activeControlMenu(e) {
@@ -70,6 +71,8 @@ function toggleInputColor(e) {
     e.target.closest("tr").classList.toggle("checked");
   }
 }
+// 用change取代click
+
 // 彈出popup
 function actionPopup(e) {
   if (e.target.matches(".actions-btn")) {
@@ -80,7 +83,17 @@ function actionPopup(e) {
   }
 }
 
+// 切換Dark mode
+function darkModeToggle(e) {
+  // console.log(e.target.checked);
+  if (e.target.checked) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+}
 fakedata(15);
 controlPanel.addEventListener("click", activeControlMenu);
 tableTbody.addEventListener("click", toggleInputColor);
 tableTbody.addEventListener("click", actionPopup);
+darkmodeBtn.addEventListener("change", darkModeToggle);

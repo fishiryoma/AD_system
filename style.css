@@ -53,6 +53,24 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+[data-theme=light] {
+  --white: rgba(255, 255, 255, 1);
+  --black: rgba(0, 0, 0, 1);
+  --dark-blue: rgba(3, 57, 106, 1);
+  --dark-grey: rgba(205, 205, 205, 1);
+  --light-grey: rgba(233, 233, 233, 1);
+  --darkmode-btn: url("https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/darkmode-off.svg");
+}
+
+[data-theme=dark] {
+  --white: rgb(191, 191, 191);
+  --black: rgb(21, 19, 19);
+  --dark-blue: rgb(63, 83, 103);
+  --dark-grey: rgb(2, 1, 1);
+  --light-grey: rgb(133, 133, 133);
+  --darkmode-btn: url("https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/darkmode-off.svg");
+}
+
 .scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -68,7 +86,8 @@ body {
 }
 
 .nav {
-  background-color: rgb(3, 57, 106);
+  background-color: var(--dark-blue);
+  overflow-y: hidden;
 }
 .nav .logo-img {
   width: 100%;
@@ -88,16 +107,25 @@ body {
   width: 4rem;
   height: 4rem;
   padding: 1rem;
-  color: rgb(255, 255, 255);
+  color: var(--white);
 }
 .nav .control-panel ul img.active {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  stroke: rgb(0, 0, 0);
+  background-color: var(--white);
+}
+.nav .control-panel ul .darkmode {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  background-image: var(--darkmode-btn);
+}
+.nav .control-panel ul .darkmode + input {
+  display: none;
 }
 
 .main {
   padding: 0 4.7rem;
+  background-color: var(--white);
 }
 .main .container {
   width: 124rem;
@@ -114,23 +142,26 @@ body {
 .main .form-panel table {
   width: 100%;
   font-size: 1.4rem;
-  background-color: rgb(205, 205, 205);
+  background-color: var(--dark-grey);
 }
 .main .form-panel table thead tr {
-  background-color: rgb(205, 205, 205);
+  background-color: var(--dark-grey);
   width: calc(100% - 6px);
+}
+.main .form-panel table thead th {
+  color: var(--white);
 }
 .main .form-panel table tbody {
   display: block;
   max-height: 50rem;
   overflow-y: scroll;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white);
 }
 .main .form-panel table tbody tr {
   position: relative;
 }
 .main .form-panel table tbody tr:nth-child(even) {
-  background-color: rgb(233, 233, 233);
+  background-color: var(--light-grey);
 }
 .main .form-panel table tbody tr.checked {
   background-color: orange;
@@ -200,7 +231,7 @@ body {
   right: 10.5rem;
   width: 13rem;
   height: 12rem;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white);
   z-index: 2;
   display: flex;
   flex-direction: column;
